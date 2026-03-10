@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  background: #F5F5F5;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+:root {
+  --green: #006E33;
+  --green-light: #00A550;
+  --green-lighter: #34D87A;
+  --green-pale: #E6F5ED;
+  --dark: #1A1A1A;
+  --grey: #757575;
+  --white: #FFFFFF;
+}
