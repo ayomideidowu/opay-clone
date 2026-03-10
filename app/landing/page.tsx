@@ -14,13 +14,14 @@ export default function LandingPage() {
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
         background: "#fff", borderBottom: "1px solid #f0f0f0",
-        padding: "0 40px", height: 64,
+        padding: "0 20px", height: 64,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         boxShadow: "0 2px 20px rgba(0,0,0,0.06)",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        {/* LOGO */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{
-            width: 36, height: 36, borderRadius: 10,
+            width: 34, height: 34, borderRadius: 10,
             background: "#006E33",
             display: "flex", alignItems: "center", justifyContent: "center",
             color: "#fff", fontWeight: 900, fontSize: 18,
@@ -28,30 +29,40 @@ export default function LandingPage() {
           <span style={{ fontSize: 20, fontWeight: 900, color: "#1a1a1a" }}>OPay</span>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="nav-links">
+        {/* DESKTOP NAV LINKS - hidden on mobile */}
+        <div style={{
+          display: "flex", alignItems: "center", gap: 28,
+          position: "absolute", left: "50%", transform: "translateX(-50%)",
+        }}>
           {["Features", "How It Works", "Download"].map((item) => (
-            <span key={item} style={{ fontSize: 15, color: "#555", fontWeight: 500, cursor: "pointer" }}>
+            <span key={item} style={{
+              fontSize: 14, color: "#555", fontWeight: 500, cursor: "pointer",
+              whiteSpace: "nowrap",
+            }}>
               {item}
             </span>
           ))}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        {/* BUTTONS */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <button
             onClick={() => router.push("/login")}
             style={{
-              padding: "9px 24px", borderRadius: 50,
+              padding: "8px 18px", borderRadius: 50,
               border: "2px solid #006E33", background: "transparent",
-              color: "#006E33", fontWeight: 700, fontSize: 14, cursor: "pointer",
+              color: "#006E33", fontWeight: 700, fontSize: 13, cursor: "pointer",
+              whiteSpace: "nowrap",
             }}>
             Log In
           </button>
           <button
             onClick={() => router.push("/signup")}
             style={{
-              padding: "9px 24px", borderRadius: 50,
+              padding: "8px 18px", borderRadius: 50,
               border: "none", background: "#006E33",
-              color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer",
+              color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer",
+              whiteSpace: "nowrap",
               boxShadow: "0 4px 14px rgba(0,110,51,0.3)",
             }}>
             Get Started
