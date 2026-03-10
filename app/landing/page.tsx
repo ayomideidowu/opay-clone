@@ -29,46 +29,73 @@ export default function LandingPage() {
           <span style={{ fontSize: 20, fontWeight: 900, color: "#1a1a1a" }}>OPay</span>
         </div>
 
-        {/* DESKTOP NAV LINKS - hidden on mobile */}
+        {/* DESKTOP ONLY - nav links */}
         <div style={{
-          display: "flex", alignItems: "center", gap: 28,
+          display: menuOpen ? "none" : "flex",
+          alignItems: "center", gap: 28,
           position: "absolute", left: "50%", transform: "translateX(-50%)",
-        }}>
+        }}
+          className="desktop-only">
           {["Features", "How It Works", "Download"].map((item) => (
             <span key={item} style={{
-              fontSize: 14, color: "#555", fontWeight: 500, cursor: "pointer",
-              whiteSpace: "nowrap",
-            }}>
-              {item}
-            </span>
+              fontSize: 14, color: "#555", fontWeight: 500,
+              cursor: "pointer", whiteSpace: "nowrap",
+            }}>{item}</span>
           ))}
         </div>
 
-        {/* BUTTONS */}
+        {/* RIGHT SIDE */}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <button
-            onClick={() => router.push("/login")}
-            style={{
-              padding: "8px 18px", borderRadius: 50,
-              border: "2px solid #006E33", background: "transparent",
-              color: "#006E33", fontWeight: 700, fontSize: 13, cursor: "pointer",
-              whiteSpace: "nowrap",
-            }}>
-            Log In
-          </button>
-          <button
-            onClick={() => router.push("/signup")}
-            style={{
-              padding: "8px 18px", borderRadius: 50,
-              border: "none", background: "#006E33",
-              color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer",
-              whiteSpace: "nowrap",
-              boxShadow: "0 4px 14px rgba(0,110,51,0.3)",
-            }}>
-            Get Started
-          </button>
+          {/* Desktop buttons */}
+          <div style={{ display: "flex", gap: 8 }} className="desktop-only">
+            <button
+              onClick={() => router.push("/login")}
+              style={{
+                padding: "8px 18px", borderRadius: 50,
+                border: "2px solid #006E33", background: "transparent",
+                color: "#006E33", fontWeight: 700, fontSize: 13, cursor: "pointer",
+              }}>Log In</button>
+            <button
+              onClick={() => router.push("/signup")}
+              style={{
+                padding: "8px 18px", borderRadius: 50,
+                border: "none", background: "#006E33",
+                color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer",
+                boxShadow: "0 4px 14px rgba(0,110,51,0.3)",
+              }}>Get Started</button>
+          </div>
+
+          {/* Mobile buttons */}
+          <div style={{ display: "flex", gap: 8 }} className="mobile-only">
+            <button
+              onClick={() => router.push("/login")}
+              style={{
+                padding: "7px 14px", borderRadius: 50,
+                border: "2px solid #006E33", background: "transparent",
+                color: "#006E33", fontWeight: 700, fontSize: 12, cursor: "pointer",
+              }}>Log In</button>
+            <button
+              onClick={() => router.push("/signup")}
+              style={{
+                padding: "7px 14px", borderRadius: 50,
+                border: "none", background: "#006E33",
+                color: "#fff", fontWeight: 700, fontSize: 12, cursor: "pointer",
+              }}>Sign Up</button>
+          </div>
         </div>
       </nav>
+
+      {/* RESPONSIVE STYLES */}
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-only { display: none !important; }
+          .mobile-only { display: flex !important; }
+        }
+        @media (min-width: 769px) {
+          .desktop-only { display: flex !important; }
+          .mobile-only { display: none !important; }
+        }
+      `}</style>
 
       {/* HERO SECTION */}
       <section style={{
